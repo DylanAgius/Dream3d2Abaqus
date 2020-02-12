@@ -6,9 +6,11 @@ The generated microstructure features and orientations are assigned to element s
 ## Dream3D Requirements
 The minimum filter construction required is as follows:
 
-<img src="/Images/minimum_filter_pipeline.png" width="200" height="200">
+<img src="/Images/dream3d_filters.png" width="250" height="400">
 
 Centroid information will be stored in the *csv* file (created using the *Export Feature Data as CSV File* filter), while node/element/orientation information is stored in the *.vox* file (created using the *Export Los Alamos FFT File* filter).
+
+Information required to understand the distance from the grain boundary is provided by the filter *Find Euclidean Distance Map*.  This should be exported with the corresponding FeatureIds using the *Export ASCII Data* filter and then added to the same file with the first column corresponding to the distance and second column the featureid.
 ## Required informtion for Matlab function
 To use the Matlab function, the *xlsx* file included here should be updated with the material parameters in the sheet (with the corresponding name) in the order provided in the pdf found [here](http://www.columbia.edu/~jk2079/Kysar_Research_Laboratory/Single_Crystal_UMAT.html). 
 
@@ -19,7 +21,8 @@ Simply copy files in the folder titled *Dream3d2Abaqus* into the MATLAB file pat
 
 ## Running the MATLAB function
 Run from the command prompt the following:
-*dream2abq('nameofvoxfile.vox','nameofinputfile.inp')*
+*dream2abq('gbvoxfile.vox','nameofvoxfile.vox','nameofinputfile.inp')*
 where:
 * nameofvoxfile = name of the vox file included in the same directly and which is exported using the *Export Los Alamos FFT File* filter
 * nameofinpfule = is the name of the Abaqus input file you would like to create
+* gbvoxfile = the vox file which contains the distance to the grain boundary and the corresponding featureId extracted from Dream3D
