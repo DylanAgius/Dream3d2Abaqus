@@ -21,7 +21,7 @@ Simply copy files in the folder titled *Dream3d2Abaqus* into the MATLAB file pat
 
 ## Running the MATLAB function
 Run from the command prompt the following:
-*dream2abq('gbvoxfile.vox','nameofvoxfile.vox','nameofinputfile.inp')*
+*dream2abq2('gbvoxfile.vox','nameofvoxfile.vox','nameofinputfile.inp')*
 where:
 * nameofvoxfile = name of the vox file included in the same directly and which is exported using the *Export Los Alamos FFT File* filter
 * nameofinpfule = is the name of the Abaqus input file you would like to create
